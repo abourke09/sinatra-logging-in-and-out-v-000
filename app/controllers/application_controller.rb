@@ -20,6 +20,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
+    Helpers.is_logged_in?
     @user = User.find(session[:user_id])
     erb :account
   end
